@@ -29,5 +29,7 @@ public class SmokeTest
 		
 		WebDriverWait waitafterlogin = new WebDriverWait(driver,15);
 		waitafterlogin.until(ExpectedConditions.elementToBeClickable(By.id("firstTab")));
+	  
+	        driver.close();
   }
 }
