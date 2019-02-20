@@ -16,10 +16,18 @@ public class SmokeTest
               "C:\\Program Files\\Firefox Nightly\\geckodriver.exe");		
 		WebDriver driver = new FirefoxDriver();
 		driver.navigate().to("http://www.mycabtravel.com");
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		driver.findElement(By.linkText("SIGN IN")).click();
+		WebDriverWait wait = new WebDriverWait(driver,15);
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("firstTab")));
 		
-		driver.quit();
+		WebElement signin = driver.findElement(By.linkText("SIGN IN"));
+		signin.click();
+		
+		driver.findElement(By.id("inputUserName:input")).sendKeys("pincode");
+		driver.findElement(By.id("inputPassword:input")).sendKeys("abc12");
+		driver.findElement(By.id("loginBtnId")).click();
+		
+		WebDriverWait waitafterlogin = new WebDriverWait(driver,15);
+		waitafterlogin.until(ExpectedConditions.elementToBeClickable(By.id("firstTab")));
   }
 }
