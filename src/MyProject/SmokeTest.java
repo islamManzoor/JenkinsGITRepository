@@ -14,7 +14,7 @@ public class SmokeTest
   @Test
   public void loginTest()
   {
-	  //Default path
+	  //Default firefox path
 	  System.setProperty("webdriver.gecko.driver",
               "C:\\Program Files\\Firefox Nightly\\geckodriver.exe");		
 		WebDriver driver = new FirefoxDriver();
